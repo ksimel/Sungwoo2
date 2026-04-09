@@ -1,1 +1,5 @@
 https://drive.google.com/file/d/125_NfXMos5RpekdcnqNgEgs94nRwrX9Y/view?usp=sharing
+streamlit
+pandas
+matplotlib
+seaborn
