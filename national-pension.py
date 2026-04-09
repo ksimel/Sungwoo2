@@ -99,14 +99,22 @@ class PensionData:
         return self.df
 
 
+import gdown
+import os
+
 @st.cache_data
 def read_pensiondata():
-    # Google Drive sharing link:
-    # https://drive.google.com/file/d/125_NfXMos5RpekdcnqNgEgs94nRwrX9Y/view?usp=sharing
-    # Direct download link:
-    url = "https://drive.google.com/file/d/125_NfXMos5RpekdcnqNgEgs94nRwrX9Y/view?usp=sharing"
+    file_id = "125_NfXMos5RpekdcnqNgEgs94nRwrX9Y"
+    output = "national-pension.csv"
 
-    df = pd.read_csv(url, encoding="cp949")
+    if not os.path.exists(output):
+        gdown.download(
+            f"https://drive.google.com/uc?id={file_id}",
+            output,
+            quiet=False
+        )
+
+    df = pd.read_csv(output, encoding="cp949")
     return PensionData(df)
 
 
