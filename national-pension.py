@@ -71,9 +71,10 @@ class PensionData():
     def get_data(self):
         return self.df
 
-@ st.cache_data
+@st.cache_data
 def read_pensiondata():
-    data = PensionData('./data/national-pension.csv')
+    url = "https://drive.google.com/uc?id=125_NfXMos5RpekdcnqNgEgs94nRwrX9Y"
+    data = PensionData(url)
     return data
 
 data = read_pensiondata()
